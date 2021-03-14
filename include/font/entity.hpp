@@ -8,7 +8,6 @@ namespace system::media::entity
     {
     public:
         Font(const char &fontCode);
-        ~Font();
 
         static const uint32_t fontCount = 256;
         static const uint32_t fontHeight = 16;
