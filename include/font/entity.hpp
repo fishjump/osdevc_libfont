@@ -7,20 +7,16 @@ namespace system::media::entity
     class Font
     {
     public:
-        Font(const char &fontCode);
+        Font(const char **&fontTable, const uint32_t &size, const uint32_t &height, const uint32_t &width);
 
-        static const uint32_t fontCount = 256;
-        static const uint32_t fontHeight = 16;
-        static const uint32_t fontWidth = 8; // unsigned char = fontWidth = 8bits
+        const char *getCharMap(const char &ch) const;
 
-        using FontTable = const uint8_t[fontCount][fontHeight];
-        using FontRows = const uint8_t *;
-
-        FontRows getFontRows() const;
+        const uint32_t size;
+        const uint32_t height;
+        const uint32_t width;
 
     private:
-        static const FontTable fontTable;
-        char fontCode;
+        const char **fontTable;
     }; // class Font
 
 } // namespace system::media::entity
