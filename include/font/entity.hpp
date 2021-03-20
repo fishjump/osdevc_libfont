@@ -2,21 +2,21 @@
 
 #include <std/stdcxx.hpp>
 
-namespace system::media::entity
-{
-    class Font
-    {
-    public:
-        Font(const char **&fontTable, const uint32_t &size, const uint32_t &height, const uint32_t &width);
+namespace system::media::entity {
 
-        const char *getCharMap(const char &ch) const;
+class Font {
+public:
+    Font();
+    Font(uint8_t *fontTable);
 
-        const uint32_t size;
-        const uint32_t height;
-        const uint32_t width;
+    static const uint32_t fontTableSize = 256;
+    static const uint32_t fontWidth     = 8;
+    static const uint32_t fontHeight    = 16;
 
-    private:
-        const char **fontTable;
-    }; // class Font
+    const uint8_t *getCharMap(const uint8_t &ch) const;
+
+private:
+    uint8_t *fontTable;
+}; // class Font
 
 } // namespace system::media::entity
