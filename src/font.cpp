@@ -3,9 +3,9 @@
 namespace system::media {
 entity::Font::Font() = default;
 
-entity::Font::Font(uint8_t *fontTable) : fontTable(fontTable) {}
+entity::Font::Font(char *fontTable) : fontTable(fontTable) {}
 
-const uint8_t *entity::Font::getCharMap(const uint8_t &ch) const {
+const char *entity::Font::getCharMap(const char &ch) const {
     if(0 <= ch && ch < fontTableSize) {
         return fontTable + ch * fontHeight;
     } else {
